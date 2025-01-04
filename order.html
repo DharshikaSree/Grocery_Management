@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Products Page</title>
+    <style>
+      .container {
+  max-width: 1000px;
+  margin: 65px auto;
+  padding: 20px;
+  margin-left: 0;
+}
+#shopcart{
+    position:absolute;
+    right:5%;
+    top:5%;
+    margin-right: 0;
+    padding: 20px;
+}
+/* // General styles
+ body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0ffd3;
+      }
+
+      // Header styles 
+      header {
+        background-image: linear-gradient(#0e5800,#0e5800);
+        color: rgb(255, 254, 254);
+        padding: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color:rgb(252, 250, 250);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition:.5s;
+        border-radius: 8px;
+      } */
+
+.product {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  border:1.5px solid #111;
+  border-radius:10px;
+  box-shadow:2px 2px 14px #d1d1d1;
+  transition:.2s;
+}
+.product:hover{
+box-shadow:2px 2px 16px #ffd363;
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product h2 {
+  margin-top: 10px;
+  left:0;
+  font-size:1em;
+  background:#EDFF00;
+}
+
+.product p {
+  font-weight: bold;
+  margin-top: 5px;
+   background:#A2FF6C;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.delete-button {
+  background-color: #f44336;
+}
+
+.receipt {
+    position: absolute;
+    width: 66%;
+    top:15%;
+    left:15%;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f2f2f2;
+}
+.cart-quantity{
+  border:1px solid var(--text color);
+  outline-color:var(--main-color);
+  width:2.4rem;
+  text-align:center;
+  font-size:1rem; 
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:last-child {
+  font-weight: bold;
+}
+
+td:first-child {
+  font-weight: bold;
+}
+
+#sidepanel{
+    position:absolute;
+    width:33%;
+    height:1400px;
+    top:0;
+    right:0;
+    background-image: linear-gradient(#fae46a8c,#fff);
+}
+
+  </style>
+  </head>
+  <body>
+    <!-- <header>
+     <h1 font-size:2.8em;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.071);font-weight: 600;position:relative;left:10%;top:8%;>Welcome to Online Harvest !!!!</h1> 
+       <nav>
+         <ul>
+           <li><a href="index.html"><h5>Home</h5></a></li>
+           <li><a href="about.html"><h5>About</h5></a></li>
+           <li><a href="contact.html"><h5>Contact Us</h5></a></li>
+           <li><a href="login.html"><h5>Login</h5></a></li>
+           <li><a href="register.html"><h5>Register</h5></a></li>
+           <li><a href="order.html"><h5>Guest Mode</h5></a></li>
+         </ul>
+       </nav>
+     </header> -->
+    <h1 id="welcomename" style="background:#fae46a8c;padding:10px;left:0;position:absolute;top:0;">Products</h1>
+    <div id="sidepanel"></div>
+    <div class="container">
+    <section>
+      <h1>FRUITS</h1>
+      <div class="product">
+        <img src="img2/apple.jpeg" alt="Product 1">
+        <h2>Apple</h2>
+        <p>Rs.100</p>
+        <!-- <input type="number" value="1" class="cart-quantity"> -->
+        <button onclick="addToCart('Apple 1kg ', 100)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/banana.jpg" alt="Product 2">
+        <h2>Banana</h2>
+        <p>Rs.120</p>
+        <button onclick="addToCart('Banana 12pcs',120)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/pineapple.jpg" alt="Product 3">
+        <h2>Pineapple</h2>
+        <p>Rs.90</p>
+        <button onclick="addToCart('Pineapple 1kg', 90)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/kiwi.jpg" alt="Product 3">
+        <h2>Kiwi</h2>
+        <p>Rs.100</p>
+        <button onclick="addToCart('Kiwi 1box', 100)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/orang.jpg" alt="Product 3">
+        <h2>Orange</h2>
+        <p>Rs.69</p>
+        <button onclick="addToCart('Orange 1kg', 69)">Add to List</button>
+      </div>
+    </section>
+    <section>
+      <h1>VEGETABLE</h1>
+      <div class="product">
+        <img src="img2/capsi.jpg" alt="Product 3">
+        <h2>Capsicum</h2>
+        <p>Rs.15</p>
+        <button onclick="addToCart('Capsicum 1pcs', 15)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/carrot.jpg" alt="Product 3">
+        <h2>Carrot</h2>
+        <p>Rs.60</p>
+        <button onclick="addToCart('Carrot 1kg',60)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/cauli.jpg" alt="Product 3">
+        <h2>Cauliflower</h2>
+        <p>Rs.50</p>
+        <button onclick="addToCart('Cauliflower 1kg',50)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/tomato.jpeg" alt="Product 3">
+        <h2>Tomatos</h2>
+        <p>Rs.40</p>
+        <button onclick="addToCart('Tomato 500g', 40)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/onion.jpeg" alt="Product 3">
+        <h2>Onion</h2>
+        <p>Rs.75</p>
+        <button onclick="addToCart('Onion 500g', 75)">Add to List</button>
+      </div>
+    </section>
+    <section>
+      <h1>SPICES</h1>
+       <div class="product">
+        <img src="img2/cumin.jpg" alt="Product 3">
+        <h2>Cumin</h2>
+        <p>Rs.90</p>
+        <button onclick="addToCart('Cumin 100g', 90)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/cloves.jpg" alt="Product 3">
+        <h2>cloves</h2>
+        <p>Rs.60</p>
+        <button onclick="addToCart('cloves 100g', 60)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/celery_seed.jpg" alt="Product 3">
+        <h2>Celery Seeds</h2>
+        <p>Rs.80</p>
+        <button onclick="addToCart('Celery Seeds 100g', 80)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/cinnamon.jpg" alt="Product 3">
+        <h2>Cinnamon</h2>
+        <p>Rs.99</p>
+        <button onclick="addToCart('Cinnamon 100g', 69)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/bay_leaf.jpg" alt="Product 3">
+        <h2>Bay Leaf</h2>
+        <p>Rs.180</p>
+        <button onclick="addToCart('Bay Leaf  100g', 50)">Add to List</button>
+      </div> 
+      <div class="product">
+        <img src="img2/saffron.jpg" alt="Product 3">
+        <h2>Saffron</h2>
+        <p>Rs.30</p>
+        <button onclick="addToCart('Saffron  100g', 150)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/coriander.jpg" alt="Product 3">
+        <h2>Coriander</h2>
+        <p>Rs.180</p>
+        <button onclick="addToCart('Coriander 100g', 80)">Add to List</button>
+      </div> 
+      <div class="product">
+        <img src="img2/fennel.jpg" alt="Product 3">
+        <h2>Fennel</h2>
+        <p>Rs.180</p>
+        <button onclick="addToCart('Fennel 100g', 180)">Add to List</button>
+      </div> 
+      <div class="product">
+        <img src="img2/pepper.jpg" alt="Product 3">
+        <h2>Pepper</h2>
+        <p>Rs.180</p>
+        <button onclick="addToCart('Pepper 100g', 180)">Add to List</button>
+      </div> 
+      <div class="product">
+        <img src="img2/star anise.jpg" alt="Product 3">
+        <h2>Star anise</h2>
+        <p>Rs.18</p>
+        <button onclick="addToCart('Star anise 100g', 18)">Add to List</button>
+      </div> 
+    </section>
+    <section>
+      <h1>MASALA POWDER</h1>
+       <div class="product">
+        <img src="img2/curry.jpg" alt="Product 3">
+        <h2>Curry masala</h2>
+        <p>Rs.50</p>
+        <button onclick="addToCart('Curry masala 100g',50)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/biriyani.jpg" alt="Product 3">
+        <h2>Biriyani masala</h2>
+        <p>Rs.55</p>
+        <button onclick="addToCart('Biriyani masala 100g',55)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/sambar.jpg" alt="Product 3">
+        <h2>Sambar powder</h2>
+        <p>Rs.59</p>
+        <button onclick="addToCart('Sambar powder 100g', 59)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/rasam.jpg" alt="Product 3">
+        <h2>Rasam powder</h2>
+        <p>Rs.40</p>
+        <button onclick="addToCart('Rasam powder', 40)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/chilli.jpg" alt="Product 3">
+        <h2>Chilli powder</h2>
+        <p>Rs.40</p>
+        <button onclick="addToCart('Chilli powder', 40)">Add to List</button>
+      </div>
+    </section>
+    <section>
+      <h1>CHOCOLATES</h1>
+       <div class="product">
+        <img src="img2/5star.jpg" alt="Product 3">
+        <h2>5star</h2>
+        <p>Rs.10</p>
+        <button onclick="addToCart('5star',10)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/snickers.jpg" alt="Product 3">
+        <h2>snickers</h2>
+        <p>Rs.55</p>
+        <button onclick="addToCart('snickers',55)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/mars.jpg" alt="Product 3">
+        <h2>mars</h2>
+        <p>Rs.40</p>
+        <button onclick="addToCart('mars', 40)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/diarymilk.jpg" alt="Product 3">
+        <h2>Diarymilk</h2>
+        <p>Rs.40</p>
+        <button onclick="addToCart('Diarymilk', 40)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/kitkat.jpeg" alt="Product 3">
+        <h2>kitkat</h2>
+        <p>Rs.40</p>
+        <button onclick="addToCart('kitkat', 40)">Add to List</button>
+      </div>
+    </section>
+    <section>
+      <h1>RICE</h1>
+       <div class="product">
+        <img src="img2/basmathi.jpg" alt="Product 3">
+        <h2>Basmathi Rice</h2>
+        <p>Rs.130</p>
+        <button onclick="addToCart('Basmathi Rice 500kg',130)">Add to List</button>
+      </div>
+       <div class="product">
+        <img src="img2/redrice.jpg" alt="Product 3">
+        <h2>snickers</h2>
+        <p>Rs.150</p>
+        <button onclick="addToCart('Red rice 500kg',150)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/brownrice.jpeg" alt="Product 3">
+        <h2>Brown Rice</h2>
+        <p>Rs.140</p>
+        <button onclick="addToCart('Brown Rice 500kg', 140)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/black-rice.jpg" alt="Product 3">
+        <h2>Black Rice</h2>
+        <p>Rs.120</p>
+        <button onclick="addToCart('Black Rice 500kg', 120)">Add to List</button>
+      </div>
+      <div class="product">
+        <img src="img2/seeragasamba.jpg" alt="Product 3">
+        <h2>Seeraga Samba</h2>
+        <p>Rs.160</p>
+        <button onclick="addToCart('Seeraga Samba', 160)">Add to List</button>
+      </div>
+    </section>
+    </div>
+    
+    <div id="shopcart">
+    
+        <h2>Your Grocery List is here,</h2>
+      <ul id="cartList" style="border:1px solid #111;border-radius:10px;"></ul>
+      <button onclick="order()" style="width: 50%;"id="orderbutton"><strong>Order</strong></button>
+    </div>
+    <div id="receipt"></div>
+    <button style='position:absolute;top:20%;right:20%;background:tomato;display: none;' id="cancelbutton" onclick="cancel()">CANCEL ORDER</button>
+    
+    <script>
+let cart = [];
+const cancelbutton = document.getElementById('cancelbutton');
+var wname = document.getElementById("welcomename");
+
+wname.innerHTML ="Welcome to our Online Harvest shop !";
+
+function addToCart(productName, price) {
+  cart.push({
+    name: productName,
+    price: price
+  });
+
+  updateCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  const cartList = document.getElementById("cartList");
+  cartList.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerText = `${item.name} - Rs.${item.price}  `;
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Remove";
+    deleteButton.classList.add("delete-button");
+    deleteButton.addEventListener("click", () => {
+      removeItem(index);
+    });
+    li.appendChild(deleteButton);
+    cartList.appendChild(li);
+  });
+}
+
+
+const receiptDiv = document.getElementById("receipt");
+
+function order() {
+   cancelbutton.style.display = "block";
+
+  const totalPrice = cart.reduce((accumulator, item) => {
+    return accumulator + item.price;
+  }, 0);
+
+  const fee = totalPrice * 0.1;
+  const totalCost = totalPrice - fee;
+  var tablec = cart.length;
+
+  //receiptDiv.style.display=block;
+  receiptDiv.innerHTML = `
+    <div class="receipt">
+    <form method="post" action="payment.php">
+      <h2>Receipt</h2>
+      <table id="mytable">
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total Amount</th>
+
+
+        </tr>
+        ${cart.map((item) => {
+          return `
+            <tr>
+            <td>${item.name}</td>
+            <td>Rs.${item.price.toFixed(2)}</td>
+            <td><input type="number" value="1" min="1" class="cart-quantity"></td>
+            <td>Rs.${item.price.toFixed(2)}</td>
+            </tr>
+          `;
+        }).join("")}
+        <tr>
+          <td colspan="4"><center>Total Details</center></td>
+          </tr>
+        <tr>
+          <td>Subtotal:</td>
+          <td colspan = "3">Rs.${totalPrice.toFixed(2)}</td>
+        </tr>
+        <tr>
+          <td >Discount (10% OFF):</td>
+          <td colspan = "3">Rs.${fee.toFixed(2)}</td>
+        </tr>
+        <tr>
+          <td>Total:</td>
+          <td colspan = "3" name="cost">Rs.${totalCost.toFixed(2)}</td>
+        </tr>
+        
+      </table>
+      <input name="itemsc" value="${tablec}" style="display:none"/>
+      <input name="cost" value="${totalCost.toFixed(2)}" style="display:none"/>
+      <button style='background:#4CAF50;width:33%;position:relative;left:33%;font-size:1.2em;' type='submit'><strong>Proceed to Pay</strong></button>
+      </form>
+    </div>
+  `;
+  
+  cart = [];
+  updateCart();
+}
+
+
+function cancel(){
+    receiptDiv.innerHTML="";
+    cancelbutton.style.display = "none";
+}
+    </script>
+  </body>
+</html>
